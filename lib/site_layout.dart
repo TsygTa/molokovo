@@ -40,10 +40,9 @@ class SiteLayout extends GetView<AppPagesController> {
               child: SiteMenu(isForDrawer: true, scaffoldKey: scaffoldKey,),
             )
           : null,
-      // endDrawer: Drawer(
-      //   key: Key('basketDrawer'),
-      //   child: Container(child: CustomText(text: 'basket'.tr),),
-      // ),
+      endDrawer: Drawer(
+        child: Container(child: CustomText(text: 'basket'.tr),),
+      ),
     );
   }
 }

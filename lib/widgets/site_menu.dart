@@ -5,7 +5,7 @@ import 'package:site_molokovo/controllers/app_pages_controllers.dart';
 import 'package:site_molokovo/widgets/basket_button.dart';
 import 'package:site_molokovo/widgets/horizontal_menu_item.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
-import 'package:site_molokovo/widgets/sigin_button.dart';
+import 'package:site_molokovo/widgets/signin_button.dart';
 import 'package:site_molokovo/widgets/vertical_menu_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -65,12 +65,10 @@ class SiteMenu extends StatelessWidget {
           + AppRoute.values.where((e) => e != AppRoute.home).map((item) => HorizontalMenuItem(item: item, onTap: () {
             _onTap(context, item);
           })).toList()
-          + [SignInButton(), BasketButton(scaffoldKey)],
+          //+ [SignInButton(), BasketButton(scaffoldKey)],
       );
     } else {
-      return Center(
-        child: Image.asset('assets/logo/logo_with_name.png'),
-      );
+      return Center(child: Image.asset('assets/logo/logo_with_name.png'),);
     }
   }
 }
