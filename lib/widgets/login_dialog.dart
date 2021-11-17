@@ -62,8 +62,8 @@ Future<void> showLoginDialog(BuildContext context) async {
       context: context,
       builder: (BuildContext context) {
         return SimpleDialog(
-          contentPadding: EdgeInsets.fromLTRB(30, 20, 30, 40),
-          insetPadding: EdgeInsets.all(8),
+          contentPadding: EdgeInsets.fromLTRB(30, 20, 30, 30),
+          //insetPadding: EdgeInsets.all(8),
           children: <Widget>[
             LoginDialog()
           ],
@@ -200,13 +200,13 @@ class CodeForm extends StatelessWidget {
                   icon: Icon(Icons.close,size: 30, color: Color(activeColor),))
             ],
           ),
-          CustomText(text: 'code_is_sent'.tr, fontSize:   14,),
+          CustomText(text: 'code_is_sent'.tr,),
           Row(
             children: [
-              CustomText(text: phone, fontSize:   14,),
+              CustomText(text: phone, fontSize: 18,),
               TextButton(
                   onPressed: onChangePhone,
-                  child: CustomText(text: 'change'.tr, fontSize: 14, color: Color(activeColor),))
+                  child: CustomText(text: 'change'.tr, fontSize: 18, color: Color(activeColor),))
             ],
           ),
           // PinWidget(

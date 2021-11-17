@@ -10,7 +10,7 @@ class Footer extends StatelessWidget {
     return Container(
         padding: EdgeInsets.fromLTRB(context.width * mainPaddingRatio, 10, context.width * mainPaddingRatio, 5),
         height: 200,
-        color:Color(darkColor),
+        color:Color(darkGreyColor),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
