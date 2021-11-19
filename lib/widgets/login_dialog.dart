@@ -29,26 +29,33 @@ class LoginDialog extends GetView<AuthController> {
               return PhoneForm((phone) {
                 controller.sendCode(phone);
               }, isSendCodeFailed: true,);
-            } else if (controller.authState == AuthState.codeSent) {
-              if(_phone == null) {
-                return Container();
-              } else {
-                return CodeForm(_phone!, onCheckCode: (code) {
-                  controller.checkCode(phone: _phone!, code: code);
-                }, onChangePhone: () {
-                  controller.authInit();
-                });
-              }
+            } else if (controller.authState == AuthState.codeSent && _phone != null) {
+              return CodeForm(_phone!,
+                  onCheckCode: (code) {
+                    controller.checkCode(phone: _phone!, code: code);
+                  },
+                  onChangePhone: () {
+                    controller.authInit();
+                  },
+                  onRepeatSendCode: (phone) {
+                    controller.sendCode(phone);
+                  },
+              );
+            } else if(controller.authState == AuthState.failed && _phone != null) {
+              return CodeForm(_phone!,
+                  isWrongCode: true,
+                  onCheckCode: (code) {
+                    controller.checkCode(phone: _phone!, code: code);
+                  },
+                  onChangePhone: () {
+                    controller.authInit();
+                  },
+                  onRepeatSendCode: (phone) {
+                    controller.sendCode(phone);
+                  },
+              );
             } else {
-              if(_phone == null) {
-                return Container();
-              } else {
-                return CodeForm(_phone!, isWrongCode: true, onCheckCode: (code) {
-                  controller.checkCode(phone: _phone!, code: code);
-                }, onChangePhone: () {
-                  controller.authInit();
-                });
-              }
+              return Container();
             }
           }
       ),
@@ -178,11 +185,14 @@ class _PhoneFormState extends State<PhoneForm> {
 
 class CodeForm extends StatelessWidget {
   CodeForm(this.phone,
-      {required this.onCheckCode, required this.onChangePhone, this.isWrongCode = false});
+      {required this.onCheckCode, required this.onChangePhone,
+        this.isWrongCode = false,
+        required this.onRepeatSendCode});
   final String phone;
   final bool isWrongCode;
   final void Function(String phone) onCheckCode;
   final void Function() onChangePhone;
+  final void Function(String phone) onRepeatSendCode;
 
   @override
   Widget build(BuildContext context) {
@@ -209,17 +219,17 @@ class CodeForm extends StatelessWidget {
                   child: CustomText(text: 'change'.tr, fontSize: 18, color: Color(activeColor),))
             ],
           ),
-          // PinWidget(
-          //   pinColor: controller.authState == AuthState.codeSentFailed ? Colors.red : const Color(darkColor),
-          //   onComplete: (value) {
-          //   controller.setCode(value);
-          // },),
-          isWrongCode
-              ? CustomText(text: 'auth_failed'.tr, color: Colors.red,)
-              : SizedBox.shrink(),
+          PinWidget(
+            isWrongCode: isWrongCode,
+            onComplete: (value) {
+              onCheckCode(value);
+            }
+          ),
           CustomButton(
             title: 'repeat_code'.tr,
-            onPressed: null,
+            onPressed: () {
+              onRepeatSendCode(phone);
+            },
           ),
           InkWell(
             child: CustomText(text: 'I_agree'.tr, fontSize: 14,
@@ -228,7 +238,6 @@ class CodeForm extends StatelessWidget {
               //launch('https://www.kgk-global.com/offer');
             },
           ),
-
         ],
       ),
     );
