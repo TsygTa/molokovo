@@ -219,6 +219,30 @@ class CodeForm extends StatelessWidget {
                   child: CustomText(text: 'change'.tr, fontSize: 18, color: Color(activeColor),))
             ],
           ),
+          // PinCodeTextField(
+          //   length: 4,
+          //   obscureText: false,
+          //   animationType: AnimationType.fade,
+          //   pinTheme: PinTheme(
+          //     shape: PinCodeFieldShape.box,
+          //     borderRadius: BorderRadius.circular(5),
+          //     fieldHeight: 50,
+          //     fieldWidth: 50,
+          //     activeFillColor: Color(activeColor),
+          //   ),
+          //   animationDuration: Duration(milliseconds: 300),
+          //   backgroundColor: Colors.white,
+          //   enableActiveFill: true,
+          //   //errorAnimationController: errorController,
+          //   //controller: textEditingController,
+          //   onCompleted: (value) {
+          //     onCheckCode(value);
+          //   },
+          //   onChanged: (value) {
+          //
+          //   },
+          //   appContext: context,
+          // ),
           PinWidget(
             isWrongCode: isWrongCode,
             onComplete: (value) {

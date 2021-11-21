@@ -21,6 +21,18 @@ class _PinWidgetState extends State<PinWidget> {
   static const int _length = 4;
   final List<TextEditingController> _pinControllers = [];
 
+  KeyEventResult _onKeyEvent(FocusNode node, KeyEvent keyEvent) {
+    if(keyEvent is KeyUpEvent) {
+      if(keyEvent.physicalKey == PhysicalKeyboardKey.arrowLeft
+          || keyEvent.physicalKey == PhysicalKeyboardKey.backspace) {
+        FocusScope.of(context).previousFocus();
+      } else if(keyEvent.physicalKey == PhysicalKeyboardKey.arrowRight) {
+        FocusScope.of(context).nextFocus();
+      }
+    }
+    return KeyEventResult.ignored;
+  }
+
   @override
   void initState() {
     for(int i = 0 ; i < _length; i++) {
@@ -31,9 +43,9 @@ class _PinWidgetState extends State<PinWidget> {
 
   @override
   void dispose() {
-    _pinControllers.forEach((element) {
+    for (var element in _pinControllers) {
       element.dispose();
-    });
+    }
     super.dispose();
   }
 
@@ -45,16 +57,19 @@ class _PinWidgetState extends State<PinWidget> {
         Container(
           width: double.infinity,
           height: 50,
-          child: ListView.separated(
-            clipBehavior: Clip.antiAlias,
-            scrollDirection: Axis.horizontal,
-            itemCount: _length,
-            itemBuilder: (context, index) {
-              return _buildItem(context,index);
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(width: 10,);
-            },),
+          child: Focus(
+            onKeyEvent: _onKeyEvent,
+            child: ListView.separated(
+              clipBehavior: Clip.antiAlias,
+              scrollDirection: Axis.horizontal,
+              itemCount: _length,
+              itemBuilder: (context, index) {
+                return _buildItem(context,index);
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return SizedBox(width: 10,);
+              },),
+          ),
         ),
         widget.isWrongCode
         ? CustomText(text: 'auth_failed'.tr, color: Colors.red,)
@@ -68,8 +83,9 @@ class _PinWidgetState extends State<PinWidget> {
       width: 50,
       height: 50,
       child: TextField(
-        autofocus: true,
+        autofocus: index == 0 ? true : false,
         controller: _pinControllers[index],
+        textAlign: TextAlign.center,
         inputFormatters: [
           FilteringTextInputFormatter.allow(RegExp(r'\b[0-9]\b')),
         ],
