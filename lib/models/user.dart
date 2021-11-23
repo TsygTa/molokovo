@@ -3,11 +3,11 @@ class User {
   User({required this.phone, this.name, this.surname, this.email, this.address, this.pinCode});
 
   final String phone;
-  final String? name;
-  final String? surname;
-  final String? email;
-  final String? pinCode;
-  final String? address;
+  String? name;
+  String? surname;
+  String? email;
+  String? pinCode;
+  String? address;
 
   static User fromJson(Map<String, dynamic> json) {
     return User(
@@ -29,5 +29,18 @@ class User {
       'pin_code': pinCode ?? '',
       'address': address ??''
     };
+  }
+
+  copyWith({String? name, String? email, String? address}) {
+    if(name != null) {
+      this.name = name;
+    }
+    if(email != null) {
+      this.email = email;
+    }
+
+    if(address != null) {
+      this.address = address;
+    }
   }
 }

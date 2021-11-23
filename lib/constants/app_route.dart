@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:site_molokovo/pages/about_us_page.dart';
 import 'package:site_molokovo/pages/contacts_page.dart';
 import 'package:site_molokovo/pages/delivery_page.dart';
-import 'package:site_molokovo/pages/products_page.dart';
+import 'package:site_molokovo/pages/products/products_page.dart';
+import 'package:site_molokovo/pages/user_profile/user_profile_page.dart';
 import 'package:site_molokovo/site_layout.dart';
 
-enum AppRoute {home, products, delivery, aboutUs, contacts}
+enum AppRoute {home, products, delivery, aboutUs, contacts, userProfile}
 
 extension AppRouteExt on AppRoute {
   String get displayName {
@@ -21,6 +22,8 @@ extension AppRouteExt on AppRoute {
         return 'about_us'.tr;
       case AppRoute.contacts:
         return 'contacts'.tr;
+      case AppRoute.userProfile:
+        return 'user_profile'.tr;
     }
   }
 
@@ -36,6 +39,8 @@ extension AppRouteExt on AppRoute {
         return '/about_us';
       case AppRoute.contacts:
         return '/contacts';
+      case AppRoute.userProfile:
+        return '/user_profile'.tr;
     }
   }
 
@@ -51,6 +56,8 @@ extension AppRouteExt on AppRoute {
         return Icons.info_outline;
       case AppRoute.contacts:
         return Icons.contact_mail_outlined;
+      case AppRoute.userProfile:
+        return Icons.face;
     }
   }
 
@@ -66,6 +73,8 @@ extension AppRouteExt on AppRoute {
         return AboutUsPage();
       case AppRoute.contacts:
         return ContactsPage();
+      case AppRoute.userProfile:
+        return UserProfilePage();
     }
   }
 }

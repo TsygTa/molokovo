@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:site_molokovo/constants/style.dart';
-
-import 'custom_text.dart';
+import 'package:site_molokovo/widgets/custom_text.dart';
 
 class PinWidget extends StatefulWidget {
   PinWidget({ this.isWrongCode = false,
@@ -27,6 +26,17 @@ class _PinWidgetState extends State<PinWidget> {
           || keyEvent.physicalKey == PhysicalKeyboardKey.backspace) {
         FocusScope.of(context).previousFocus();
       } else if(keyEvent.physicalKey == PhysicalKeyboardKey.arrowRight) {
+        FocusScope.of(context).nextFocus();
+      } else if(keyEvent.physicalKey == PhysicalKeyboardKey.digit0
+        || keyEvent.physicalKey == PhysicalKeyboardKey.digit1
+        || keyEvent.physicalKey == PhysicalKeyboardKey.digit2
+        || keyEvent.physicalKey == PhysicalKeyboardKey.digit3
+        || keyEvent.physicalKey == PhysicalKeyboardKey.digit4
+        || keyEvent.physicalKey == PhysicalKeyboardKey.digit5
+        || keyEvent.physicalKey == PhysicalKeyboardKey.digit6
+        || keyEvent.physicalKey == PhysicalKeyboardKey.digit7
+        || keyEvent.physicalKey == PhysicalKeyboardKey.digit8
+        || keyEvent.physicalKey == PhysicalKeyboardKey.digit9) {
         FocusScope.of(context).nextFocus();
       }
     }
@@ -120,7 +130,6 @@ class _PinWidgetState extends State<PinWidget> {
           widget.isWrongCode = false;
         });
       }
-      FocusScope.of(context).nextFocus();
     }
   }
 }

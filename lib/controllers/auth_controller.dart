@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:site_molokovo/constants/app_route.dart';
+import 'package:site_molokovo/controllers/app_pages_controllers.dart';
 import 'package:site_molokovo/models/auth_response.dart';
 import 'package:site_molokovo/models/user.dart';
 import 'package:site_molokovo/repositories/data_repository.dart';
@@ -8,7 +10,6 @@ enum AuthState{init, codeSent, codeSentFailed, success, failed}
 class AuthController extends GetxController {
 
   final DataRepository _dataRepository = DataRepository.instance;
-
 
   User? user;
 
@@ -46,6 +47,35 @@ class AuthController extends GetxController {
     } else {
       authState = AuthState.failed;
     }
+    update();
+  }
+
+  void changeUserName(String value) {
+    if(user == null) return;
+    user = user!.copyWith(name: value);
+    _dataRepository.saveUser(user!);
+    update();
+  }
+
+  void changeUserEmail(String value) {
+    if(user == null) return;
+    user = user!.copyWith(email: value);
+    _dataRepository.saveUser(user!);
+    update();
+  }
+
+  void changeUserAddress(String value) {
+    if(user == null) return;
+    user = user!.copyWith(address: value);
+    _dataRepository.saveUser(user!);
+    update();
+  }
+
+  void logout() {
+    AppPagesController _pagesController = Get.find();
+    _pagesController.setPage(AppRoute.home);
+    authState = AuthState.init;
+    user = null;
     update();
   }
 }

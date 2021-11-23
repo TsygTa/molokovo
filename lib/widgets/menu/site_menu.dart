@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/constants/app_route.dart';
 import 'package:site_molokovo/controllers/app_pages_controllers.dart';
-import 'package:site_molokovo/widgets/basket_button.dart';
-import 'package:site_molokovo/widgets/horizontal_menu_item.dart';
+import 'package:site_molokovo/widgets/menu/horizontal_menu_item.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
-import 'package:site_molokovo/widgets/signin_button.dart';
-import 'package:site_molokovo/widgets/vertical_menu_item.dart';
+import 'package:site_molokovo/widgets/menu/vertical_menu_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SiteMenu extends StatelessWidget {
@@ -18,6 +16,8 @@ class SiteMenu extends StatelessWidget {
 
   void _onTap(BuildContext context, AppRoute item) {
     switch(item) {
+      case AppRoute.userProfile:
+        break;
       case AppRoute.home:
       case AppRoute.products:
       case AppRoute.delivery:
@@ -47,7 +47,7 @@ class SiteMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     if(isForDrawer) {
       return ListView(
-        children: AppRoute.values.where((e) => e != AppRoute.home).map<Widget>((item) => VerticalMenuItem(item: item, onTap: (){
+        children: AppRoute.values.where((e) => e != AppRoute.home && e != AppRoute.userProfile).map<Widget>((item) => VerticalMenuItem(item: item, onTap: (){
           _onTap(context, item);
         })).toList(),
       );
@@ -62,7 +62,7 @@ class SiteMenu extends StatelessWidget {
                 _onTap(context, AppRoute.home);
               },)
           ]
-          + AppRoute.values.where((e) => e != AppRoute.home).map((item) => HorizontalMenuItem(item: item, onTap: () {
+          + AppRoute.values.where((e) => e != AppRoute.home && e != AppRoute.userProfile).map((item) => HorizontalMenuItem(item: item, onTap: () {
             _onTap(context, item);
           })).toList()
           //+ [SignInButton(), BasketButton(scaffoldKey)],

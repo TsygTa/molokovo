@@ -11,6 +11,7 @@ import 'package:site_molokovo/utils/routing/app_route_information_parser.dart';
 import 'controllers/app_pages_controllers.dart';
 import 'controllers/auth_controller.dart';
 import 'controllers/basket_controller.dart';
+import 'controllers/products_controller.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -23,6 +24,7 @@ void main() {
   });
   Get.put(AppPagesController());
   Get.put(AuthController());
+  Get.put(ProductsController());
   Get.put(BasketController());
   runApp(MyApp());
 }

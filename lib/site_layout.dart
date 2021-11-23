@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:site_molokovo/pages/about_us_page.dart';
 import 'package:site_molokovo/pages/contacts_page.dart';
 import 'package:site_molokovo/pages/delivery_page.dart';
-import 'package:site_molokovo/pages/products_page.dart';
+import 'package:site_molokovo/pages/products/products_page.dart';
+import 'package:site_molokovo/pages/user_profile/user_profile_page.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
-import 'package:site_molokovo/widgets/site_menu.dart';
+import 'package:site_molokovo/widgets/menu/site_menu.dart';
 import 'package:site_molokovo/widgets/top_navigation_bar.dart';
 
 import 'constants/app_route.dart';
@@ -31,6 +32,8 @@ class SiteLayout extends GetView<AppPagesController> {
               return AboutUsPage();
             } else if(controller.currentPage == AppRoute.contacts) {
               return ContactsPage();
+            } else if(controller.currentPage == AppRoute.userProfile) {
+              return UserProfilePage();
             }
             return ProductsPage();
           }

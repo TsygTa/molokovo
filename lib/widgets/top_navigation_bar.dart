@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/constants/style.dart';
+import 'package:site_molokovo/controllers/auth_controller.dart';
 import 'package:site_molokovo/widgets/basket_button.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 import 'package:site_molokovo/widgets/signin_button.dart';
-import 'package:site_molokovo/widgets/site_menu.dart';
+import 'package:site_molokovo/widgets/menu/site_menu.dart';
+import 'package:site_molokovo/widgets/user_profile_button.dart';
 
 AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> scaffoldKey) {
   double padding = context.width * (ResponsiveWidget.isCustomScreen(context)
@@ -27,7 +29,11 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> scaffoldK
       titleSpacing: 50,
       title: SiteMenu(),
       actions: [
-        SignInButton(),
+        GetBuilder<AuthController>(
+          builder: (controller) {
+            return controller.authState == AuthState.success ? UserProfileButton() : SignInButton();
+          }
+        ),
         SizedBox(width: 20,),
         BasketButton(scaffoldKey),
         SizedBox(width: padding,)

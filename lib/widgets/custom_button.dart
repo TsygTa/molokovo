@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
           primary: backgroundColor,
         ),
         onPressed: onPressed,
-        child: CustomText(text: 'send_code'.tr, fontSize: 16, color: titleColor,),
+        child: CustomText(text: title, fontSize: 16, color: titleColor,),
       ),
     );
   }
