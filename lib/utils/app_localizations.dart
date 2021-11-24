@@ -38,6 +38,12 @@ class AppLocalizations extends Translations {
       'save': 'Cохранить',
       'cancel': 'Отменить',
       'sign_out': 'Выйти',
+      'empty_basket': 'Ой, пусто!',
+      'back_to_menu': 'Вернуться в меню',
+      'make_order': 'Оформить заказ',
+      'summary_1': 'Товаров: ',
+      'summary_2': ' на ',
+      'order_total': 'Сумма заказа',
     },
   };
 }

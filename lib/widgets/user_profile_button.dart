@@ -5,6 +5,7 @@ import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/controllers/app_pages_controllers.dart';
 import 'package:site_molokovo/controllers/auth_controller.dart';
 import 'package:site_molokovo/models/user.dart';
+import 'package:site_molokovo/widgets/custom_text.dart';
 
 class UserProfileButton extends StatelessWidget {
 
@@ -15,16 +16,19 @@ class UserProfileButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    User? user = Get.find<AuthController>().user;
-    if(user == null) return Container();
-    return Padding(
-      padding: const EdgeInsets.only(right: 20),
-      child: IconButton(
-        icon: Icon(Icons.face, color: Color(darkColor), size: 30, semanticLabel: user.name,),
-        onPressed: () {
-          _onPressed(context);
-        },
-      ),
+    return GetBuilder<AuthController>(
+      builder: (controller) {
+        return TextButton(
+            onPressed: () => _onPressed(context),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.face, color: Color(darkColor), size: 25,),
+                CustomText(text: controller.user?.name, fontSize: 12,),
+              ],
+            ),
+        );
+      }
     );
   }
 }

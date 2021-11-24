@@ -52,21 +52,21 @@ class AuthController extends GetxController {
 
   void changeUserName(String value) {
     if(user == null) return;
-    user = user!.copyWith(name: value);
+    user!.copyWith(name: value);
     _dataRepository.saveUser(user!);
     update();
   }
 
   void changeUserEmail(String value) {
     if(user == null) return;
-    user = user!.copyWith(email: value);
+    user!.copyWith(email: value);
     _dataRepository.saveUser(user!);
     update();
   }
 
   void changeUserAddress(String value) {
     if(user == null) return;
-    user = user!.copyWith(address: value);
+    user!.copyWith(address: value);
     _dataRepository.saveUser(user!);
     update();
   }

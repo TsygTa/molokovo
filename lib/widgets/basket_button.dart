@@ -35,7 +35,7 @@ class BasketButton extends StatelessWidget {
                     Icon(Icons.shopping_cart_outlined),
                     SizedBox(width: 8,),
                     CustomText(text: 'basket'.tr + ' | ' +
-                        controller.productsCounter.toStringAsFixed(0)),
+                        controller.productsNumber),
                   ],
                 );
               }

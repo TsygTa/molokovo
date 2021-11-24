@@ -31,7 +31,10 @@ class ProductsPage extends GetView<ProductsController> {
                   crossAxisAlignment: WrapCrossAlignment.center,
                   spacing: 5,
                   runSpacing: 20,
-                  children: controller.products.map((product) => ProductWidget(product)).toList(),
+                  children: controller.products.map((product) => ProductWidget(product, (product) {
+                    controller.onAddToBasket(product);
+                  }))
+                      .toList(),
                 );
               }
             ),

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:site_molokovo/controllers/basket_controller.dart';
 import 'package:site_molokovo/models/auth_response.dart';
 import 'package:site_molokovo/models/product.dart';
 import 'package:site_molokovo/models/user.dart';
@@ -13,5 +14,10 @@ class ProductsController extends GetxController {
   void onInit() {
     products.addAll(_dataRepository.getProducts);
     super.onInit();
+  }
+
+  void onAddToBasket(Product product) {
+    BasketController controller = Get.find();
+    controller.addProduct(product);
   }
 }

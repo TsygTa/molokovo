@@ -120,9 +120,10 @@ class _PinWidgetState extends State<PinWidget> {
     );
   }
 
-  void _onChanged(BuildContext context, int index) {
+  void _onChanged(BuildContext context, int index) async {
     if(_pinControllers.where((element) => element.text.isNotEmpty).length == _length) {
       String result = _pinControllers.map((e) => e.text).join();
+      await Future.delayed(Duration(milliseconds: 100));
       widget.onComplete(result);
     } else {
       if(widget.isWrongCode) {

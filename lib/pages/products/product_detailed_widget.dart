@@ -6,8 +6,9 @@ import 'package:site_molokovo/widgets/custom_button.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
 class ProductDetailedWidget extends StatelessWidget {
-  ProductDetailedWidget(this.product);
+  ProductDetailedWidget(this.product, this.onAddToBasket);
   final Product product;
+  final void Function(Product) onAddToBasket;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,10 @@ class ProductDetailedWidget extends StatelessWidget {
                       SizedBox(height: 10,),
                       CustomText(text: 'price'.tr + ': ' + product.priceToString, fontWeight: FontWeight.bold,),
                       SizedBox(height: 20,),
-                      SizedBox(width: context.width * 0.2,child: CustomButton(title: 'add_to_basket'.tr, onPressed: () {},))
+                      SizedBox(width: context.width * 0.2,child: CustomButton(title: 'add_to_basket'.tr,
+                        onPressed: () {
+                          onAddToBasket(product);
+                        },))
                     ],
                   ),
                 ),
@@ -67,14 +71,14 @@ class ProductDetailedWidget extends StatelessWidget {
 }
 
 
-Future<void> showDetailed(BuildContext context, Product product) async {
+Future<void> showDetailed(BuildContext context, Product product, Function(Product) onAddToBasket) async {
   await showDialog(
       context: context,
       builder: (BuildContext context) {
         return SimpleDialog(
           contentPadding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           children: <Widget>[
-            ProductDetailedWidget(product)
+            ProductDetailedWidget(product, onAddToBasket)
           ],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),),

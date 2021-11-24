@@ -8,8 +8,9 @@ import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class ProductWidget extends StatefulWidget {
-  ProductWidget(this.product);
+  ProductWidget(this.product, this.onAddToBasket);
   final Product product;
+  final void Function(Product) onAddToBasket;
 
   @override
   State<ProductWidget> createState() => _ProductWidgetState();
@@ -20,7 +21,7 @@ class _ProductWidgetState extends State<ProductWidget> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        showDetailed(context, widget.product);
+        showDetailed(context, widget.product, widget.onAddToBasket);
       },
       borderRadius: BorderRadius.circular(10),
       hoverColor: Color(activeColor).withOpacity(0.3),
@@ -53,7 +54,7 @@ class _ProductWidgetState extends State<ProductWidget> {
               CustomText(text: 'price'.tr + ': ' + widget.product.priceToString,),
               SizedBox(height: 20,),
               CustomButton(title: 'choose'.tr, onPressed: () {
-
+                widget.onAddToBasket(widget.product);
               },)
             ],
           ),
