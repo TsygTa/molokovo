@@ -44,7 +44,7 @@ class SiteLayout extends GetView<AppPagesController> {
             )
           : null,
       endDrawer: SizedBox(
-        width: context.width / 3,
+        width: context.width / (ResponsiveWidget.isSmallScreen(context) ? 2 : 3),
         child: Drawer(
           child: BasketForm(),
         ),

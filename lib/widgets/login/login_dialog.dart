@@ -11,10 +11,10 @@ class LoginDialog extends GetView<AuthController> {
 
   @override
   Widget build(BuildContext context) {
-    int devider = ResponsiveWidget.isSmallScreen(context) ? 2 : 3;
+    double divider = ResponsiveWidget.isSmallScreen(context) ? 2 : 2.5;
     return SizedBox(
-      width: context.height / devider,
-      height: context.height / devider,
+      width: context.width / divider,
+      height: context.height / divider,
       child: GetBuilder<AuthController>(
           builder: (_) {
             if (controller.authState == AuthState.init) {
@@ -69,8 +69,7 @@ Future<void> showLoginDialog(BuildContext context) async {
       context: context,
       builder: (BuildContext context) {
         return SimpleDialog(
-          contentPadding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          //insetPadding: EdgeInsets.all(8),
+          contentPadding: const EdgeInsets.all(20),
           children: <Widget>[
             LoginDialog()
           ],
