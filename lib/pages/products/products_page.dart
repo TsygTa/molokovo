@@ -13,15 +13,7 @@ class ProductsPage extends GetView<ProductsController> {
     return ListView(
       clipBehavior: Clip.antiAlias,
       children: [
-        SizedBox(height: 40,),
-        ConstrainedWidget(Center(
-            child: ImageFiltered(
-              imageFilter: ImageFilter.blur(
-                sigmaX: 1.0,
-                sigmaY: 1.0
-              ),
-              child: Image.asset('assets/cows_3.png', fit: BoxFit.fitWidth))),),
-        SizedBox(height: 40,),
+        const SizedBox(height: 40,),
         ConstrainedWidget(
           Center(
             child: GetBuilder<ProductsController>(

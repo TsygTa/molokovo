@@ -18,15 +18,6 @@ class DataRepository {
   String? _phone;
 
   final List<Product> _products = [
-    Product(name: 'Молоко коровье цельное',
-        description: 'Как у нас говорят молоко прямо из-под коровы. Все живые и полезные свойства сохраняются. Очень полезное и натуральное, фермерское молоко. Подоили, разлили, привезли к Вам домой. Коровки питаются у нас только натуральным. Не покупаем комбикорма. Поим чистой водой. Поэтому молоко от наших коровок сохранило полезные вещества и имеет натуральный вкус. После доставки молоко необходимо сразу поставить в холодильник.',
-        shelfLife:'3 дня при температуре 0-6 градусов', composition: 'цельное не пастеризованное молоко', weight: '1л', price: 300, imagePath: 'assets/products/milk.jpg'),
-    Product(name: 'Творог',
-        description: '',
-        shelfLife:'5 дня при температуре 0-6 градусов', composition: '', weight: '500г', price: 600, imagePath: 'assets/products/milk.jpg'),
-    Product(name: 'Сметана',
-        description: '',
-        shelfLife:'7 дней при температуре 0-6 градусов', composition: '', weight: '200г', price: 500, imagePath: 'assets/products/milk.jpg'),
     Product(name: 'Валансе',
         description: 'Cыр из козьего молока в обсыпке из древесного угля, через который пробивается белая плесень. Отличный сыр для сырной тарелки. Перед употреблением сыр необходимо довести до комнатной температуры. Употребляется с вином Совиньон Бланк, Сансар Руж, Шинон',
         shelfLife:'90 дней с даты изготовления',
@@ -47,6 +38,21 @@ class DataRepository {
         description: 'Полутвердый сыр из коровьего молока. Вкус молочный, мягкий, сладкий, острый (у выдержанных сыров). Это превосходный бутербродный сыр. Она отлично плавится и может быть использована при приготовлении различных блюд традиционной итальянской кухни: пиццы, пасты, ризотто.',
         shelfLife:'',
         composition: '', weight: '1кг', price: 1800, imagePath: 'assets/products/kachotta.jpg'),
+    Product(name: 'Молоко коровье цельное',
+        description: 'Как у нас говорят молоко прямо из-под коровы. Все живые и полезные свойства сохраняются. Очень полезное и натуральное, фермерское молоко. Подоили, разлили, привезли к Вам домой. Коровки питаются у нас только натуральным. Не покупаем комбикорма. Поим чистой водой. Поэтому молоко от наших коровок сохранило полезные вещества и имеет натуральный вкус. После доставки молоко необходимо сразу поставить в холодильник.',
+        shelfLife:'3 дня при температуре 0-6 градусов', composition: 'цельное не пастеризованное молоко', weight: '1л', price: 300, imagePath: 'assets/products/milk.png'),
+    Product(name: 'Творог',
+        description: '',
+        shelfLife:'5 дня при температуре 0-6 градусов', composition: '', weight: '500г', price: 600, imagePath: 'assets/products/cottage_cheese.png'),
+    Product(name: 'Сметана',
+        description: '',
+        shelfLife:'7 дней при температуре 0-6 градусов', composition: '', weight: '200г', price: 500, imagePath: 'assets/products/sour_cream.png'),
+    Product(name: 'Сливочное масло',
+        description: '',
+        shelfLife:'15 дней при температуре 0-6 градусов', composition: '', weight: '200г', price: 500, imagePath: 'assets/products/butter.png'),
+    Product(name: 'Сено',
+        description: 'Рулон сена',
+        shelfLife:'', composition: '', weight: '', price: 2500, imagePath: 'assets/products/hay.png'),
   ];
 
   Future<bool> sendCode(String phone) async {

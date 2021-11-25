@@ -43,8 +43,11 @@ class SiteLayout extends GetView<AppPagesController> {
               child: SiteMenu(isForDrawer: true, scaffoldKey: scaffoldKey,),
             )
           : null,
-      endDrawer: Drawer(
-        child: BasketForm(),
+      endDrawer: SizedBox(
+        width: context.width / 3,
+        child: Drawer(
+          child: BasketForm(),
+        ),
       ),
     );
   }

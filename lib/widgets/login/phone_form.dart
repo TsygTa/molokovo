@@ -44,7 +44,8 @@ class _PhoneFormState extends State<PhoneForm> {
             children: [
               CustomText(text: 'login_dialog_title'.tr, fontSize: 30,),
               IconButton(onPressed: () => Navigator.pop(context),
-                  icon: Icon(Icons.close,size: 30, color: Color(activeColor),))
+                  icon: Icon(Icons.close,size: 30, color: Color(activeColor),),
+                splashRadius: 15,)
             ],
           ),
           SizedBox(height: 10,),

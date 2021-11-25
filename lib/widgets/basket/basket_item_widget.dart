@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/controllers/basket_controller.dart';
 import 'package:site_molokovo/models/basket_item.dart';
+import 'package:site_molokovo/widgets/custom_image.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
 
@@ -21,10 +22,7 @@ class BasketItemWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(item.product.imagePath,
-                width: 50,
-                height: 50,
-                fit: BoxFit.fitWidth),
+            CustomImage(imagePath: item.product.imagePath, width: 50, height: 50),
             const SizedBox(width: 10),
             CustomText(text: item.product.name),
           ],
@@ -46,9 +44,9 @@ class BasketItemWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        IconButton(onPressed: onRemove, icon: Icon(Icons.remove, size: 20,)),
-        CustomText(text: quantity.toString(), fontSize: 20,),
-        IconButton(onPressed: onAdd, icon: Icon(Icons.add, size: 20,)),
+        IconButton(onPressed: onRemove, icon: Icon(Icons.remove, size: 18,), splashRadius: 10,),
+        CustomText(text: quantity.toString(), fontSize: 18,),
+        IconButton(onPressed: onAdd, icon: Icon(Icons.add, size: 18,), splashRadius: 10,),
       ],
     );
   }

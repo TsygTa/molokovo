@@ -3,6 +3,7 @@ import 'package:site_molokovo/constants/style.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/models/product.dart';
 import 'package:site_molokovo/widgets/custom_button.dart';
+import 'package:site_molokovo/widgets/custom_image.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
 class ProductDetailedWidget extends StatelessWidget {
@@ -23,16 +24,16 @@ class ProductDetailedWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(onPressed: () => Navigator.pop(context),
-                  icon: Icon(Icons.close,size: 30, color: Color(activeColor),)),
+                  icon: Icon(Icons.close,size: 30, color: Color(activeColor),),
+                splashRadius: 15,),
             ],
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(product.imagePath, width: context.width * 0.20, height: context.height * 0.4,
-              fit: BoxFit.contain),
+              CustomImage(imagePath: product.imagePath, width: context.width * 0.20, height: context.height * 0.4),
               SizedBox(
                 width: context.width * 0.29,
                 height: context.height * 0.4,
@@ -76,7 +77,7 @@ Future<void> showDetailed(BuildContext context, Product product, Function(Produc
       context: context,
       builder: (BuildContext context) {
         return SimpleDialog(
-          contentPadding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+          contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
           children: <Widget>[
             ProductDetailedWidget(product, onAddToBasket)
           ],

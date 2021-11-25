@@ -57,7 +57,7 @@ class SiteMenu extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
             InkWell(
-              child: Image.asset('assets/logo/logo_with_name.png'),
+              child: Image.asset('assets/logo/logo_molokovo.png'),
               onTap: (){
                 _onTap(context, AppRoute.home);
               },)
@@ -68,7 +68,7 @@ class SiteMenu extends StatelessWidget {
           //+ [SignInButton(), BasketButton(scaffoldKey)],
       );
     } else {
-      return Center(child: Image.asset('assets/logo/logo_with_name.png'),);
+      return Center(child: Image.asset('assets/logo/logo_molokovo.png'),);
     }
   }
 }

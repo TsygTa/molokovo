@@ -4,6 +4,7 @@ import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/models/product.dart';
 import 'package:site_molokovo/pages/products/product_detailed_widget.dart';
 import 'package:site_molokovo/widgets/custom_button.dart';
+import 'package:site_molokovo/widgets/custom_image.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 
@@ -42,10 +43,7 @@ class _ProductWidgetState extends State<ProductWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(widget.product.imagePath,
-                  width: 200,
-                  height: 200,
-                  fit: BoxFit.fitWidth),
+              CustomImage(imagePath: widget.product.imagePath, width: 200, height: 200),
               SizedBox(height: 20,),
               CustomText(text: widget.product.name, fontWeight: FontWeight.bold,),
               SizedBox(height: 20,),

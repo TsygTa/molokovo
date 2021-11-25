@@ -14,14 +14,15 @@ class BasketForm extends GetView<BasketController> {
         builder: (_) {
           if (controller.basketIsEmpty) {
             return Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 40),
               child: ListView(
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
                     child: IconButton(onPressed: () => Navigator.pop(context),
                         icon: Icon(
-                          Icons.close, size: 30, color: Color(activeColor),)),
+                          Icons.close, size: 30, color: Color(activeColor),),
+                      splashRadius: 15,),
                   ),
                   SizedBox(
                     height: context.height * 0.9,
@@ -44,7 +45,7 @@ class BasketForm extends GetView<BasketController> {
             );
           } else {
             return Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 40),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -52,7 +53,8 @@ class BasketForm extends GetView<BasketController> {
                     alignment: Alignment.centerLeft,
                     child: IconButton(onPressed: () => Navigator.pop(context),
                         icon: Icon(
-                          Icons.close, size: 30, color: Color(activeColor),)),
+                          Icons.close, size: 30, color: Color(activeColor),),
+                          splashRadius: 15,),
                   ),
                   CustomText(text: 'summary_1'.tr + controller.productsNumber + 'summary_2'.tr + controller.total + ' ' + 'rub'.tr,
                     fontSize: 20, ),
