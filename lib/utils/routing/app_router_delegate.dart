@@ -9,6 +9,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
 
   AppRouterDelegate() : navigatorKey = GlobalKey<NavigatorState>();
 
+  @override
   final GlobalKey<NavigatorState> navigatorKey;
 
   final AppPagesController _pagesController = Get.find<AppPagesController>();

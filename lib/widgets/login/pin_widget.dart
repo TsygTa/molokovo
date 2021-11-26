@@ -64,7 +64,7 @@ class _PinWidgetState extends State<PinWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
+        SizedBox(
           width: double.infinity,
           height: 50,
           child: Focus(

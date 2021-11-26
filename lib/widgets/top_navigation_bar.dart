@@ -9,24 +9,21 @@ import 'package:site_molokovo/widgets/menu/site_menu.dart';
 import 'package:site_molokovo/widgets/user_profile_button.dart';
 
 AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> scaffoldKey) {
-  double padding = context.width * (ResponsiveWidget.isCustomScreen(context)
+  double padding = context.width * (ResponsiveWidget.isSmallScreen(context) || ResponsiveWidget.isMediumScreen(context)
       ? mainPaddingRatioSmall : mainPaddingRatio);
   return AppBar(
       elevation: 1,
-      backgroundColor: Color(lightColor),
-      leadingWidth: padding - 50 < 0 ? padding : padding - 50,
+      backgroundColor: const Color(lightColor),
+      leadingWidth: ResponsiveWidget.isLargeScreen(context) ? context.width * mainPaddingRatio - 50 : null,
       leading: ResponsiveWidget.isSmallScreen(context) || ResponsiveWidget.isMediumScreen(context)
-          ? Padding(
-              padding: const EdgeInsets.only(left: 5),
-              child: IconButton(
-                  icon: Icon(Icons.menu, color: Color(activeColor), size: 30,),
-                  onPressed: () {
-                    scaffoldKey.currentState!.openDrawer();
-                  }),
-            )
+          ? IconButton(
+              icon: const Icon(Icons.menu, color: Color(activeColor), size: 30,),
+              onPressed: () {
+                scaffoldKey.currentState!.openDrawer();
+              })
           : SizedBox(width: padding,),
       automaticallyImplyLeading: false,
-      titleSpacing: 50,
+      titleSpacing: ResponsiveWidget.isSmallScreen(context) ? 12 : 50,
       title: SiteMenu(),
       actions: [
         GetBuilder<AuthController>(
@@ -34,7 +31,7 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> scaffoldK
             return controller.authState == AuthState.success ? UserProfileButton() : SignInButton();
           }
         ),
-        SizedBox(width: 20,),
+        SizedBox(width: ResponsiveWidget.isSmallScreen(context) ? 10 : 20,),
         BasketButton(scaffoldKey),
         SizedBox(width: padding,)
       ]

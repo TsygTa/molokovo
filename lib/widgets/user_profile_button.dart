@@ -4,7 +4,6 @@ import 'package:site_molokovo/constants/app_route.dart';
 import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/controllers/app_pages_controllers.dart';
 import 'package:site_molokovo/controllers/auth_controller.dart';
-import 'package:site_molokovo/models/user.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
 class UserProfileButton extends StatelessWidget {

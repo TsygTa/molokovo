@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 import 'package:site_molokovo/controllers/basket_controller.dart';
-import 'package:site_molokovo/models/auth_response.dart';
 import 'package:site_molokovo/models/product.dart';
-import 'package:site_molokovo/models/user.dart';
 import 'package:site_molokovo/repositories/data_repository.dart';
 
 class ProductsController extends GetxController {

@@ -11,7 +11,7 @@ class LoginDialog extends GetView<AuthController> {
 
   @override
   Widget build(BuildContext context) {
-    double divider = ResponsiveWidget.isSmallScreen(context) ? 2 : 2.5;
+    double divider = ResponsiveWidget.isSmallScreen(context) ? 2 : 4;
     return SizedBox(
       width: context.width / divider,
       height: context.height / divider,

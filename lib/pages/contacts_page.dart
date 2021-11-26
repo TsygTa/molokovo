@@ -11,7 +11,7 @@ class ContactsPage extends StatelessWidget {
       children: [
         Container(
           height: Get.height - 200,
-          color: Color(lightColor),
+          color: const Color(lightColor),
           child: Center(child: CustomText(text: 'contacts'.tr, fontSize: 40,),),
         ),
         Footer()

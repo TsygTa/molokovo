@@ -47,14 +47,14 @@ class MyApp extends StatelessWidget {
       translations: AppLocalizations(),
       locale: Get.deviceLocale,
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(lightColor),
-        textSelectionTheme: TextSelectionThemeData(
+        scaffoldBackgroundColor: const Color(lightColor),
+        textSelectionTheme: const TextSelectionThemeData(
           cursorColor: Color(activeColor),
         ),
         textTheme: GoogleFonts.robotoTextTheme(
           Theme.of(context).textTheme,
         ).apply(
-            bodyColor: Color(activeColor),
+            bodyColor: const Color(activeColor),
         ),
       ),
     );

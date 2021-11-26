@@ -62,11 +62,12 @@ class DataRepository {
   }
 
   Future<AuthResponse> auth(String phone, String code) async {
-    if(_phone == phone && code == testCode) {
-      return AuthResponse(status: true, user: User(phone: phone));
-    } else {
-      return AuthResponse(status: false, error: 'auth_failed'.tr);
-    }
+    return AuthResponse(status: true, user: User(phone: phone));
+    // if(_phone == phone && code == testCode) {
+    //   return AuthResponse(status: true, user: User(phone: phone));
+    // } else {
+    //   return AuthResponse(status: false, error: 'auth_failed'.tr);
+    // }
   }
 
   List<Product> get getProducts {

@@ -5,10 +5,10 @@ import 'package:site_molokovo/constants/style.dart';
 extension GetExt on GetInterface {
 
   void appSnippet({String title = '', String message = '', String image = ''}) {
-    if(this.isSnackbarOpen != null && this.isSnackbarOpen!) {
+    if(isSnackbarOpen != null && isSnackbarOpen!) {
       Get.back();
     }
-    this.snackbar(title, message,
+    snackbar(title, message,
       titleText: Text(title, style: TextStyle(color: Colors.red),),
       icon: image.isNotEmpty ? Image.asset(image) : null,
       snackPosition: SnackPosition.TOP,
@@ -26,7 +26,7 @@ extension GetExt on GetInterface {
     if(Get.isDialogOpen!= null && Get.isDialogOpen!) {
       Get.back();
     }
-    this.defaultDialog(
+    defaultDialog(
       contentPadding: EdgeInsets.all(10),
       title: title,
       titleStyle: TextStyle(color: Color(activeColor), fontSize: 14),

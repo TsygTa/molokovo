@@ -5,7 +5,7 @@ import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class UserProfileItem extends StatefulWidget {
-  UserProfileItem({this.label, this.isEditable = false, this.onSubmit, this.regExp, this.initialValue});
+  const UserProfileItem({this.label, this.isEditable = false, this.onSubmit, this.regExp, this.initialValue});
 
   final String? label;
   final String? initialValue;

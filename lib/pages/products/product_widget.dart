@@ -9,7 +9,7 @@ import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class ProductWidget extends StatefulWidget {
-  ProductWidget(this.product, this.onAddToBasket);
+  const ProductWidget(this.product, this.onAddToBasket);
   final Product product;
   final void Function(Product) onAddToBasket;
 
@@ -51,7 +51,7 @@ class _ProductWidgetState extends State<ProductWidget> {
               SizedBox(height: 20,),
               CustomText(text: 'price'.tr + ': ' + widget.product.priceToString,),
               SizedBox(height: 20,),
-              CustomButton(title: 'choose'.tr, onPressed: () {
+              CustomButton(title: 'add_to_basket'.tr, onPressed: () {
                 widget.onAddToBasket(widget.product);
               },)
             ],

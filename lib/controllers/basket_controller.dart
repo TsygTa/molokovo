@@ -11,12 +11,6 @@ class BasketController extends GetxController {
 
   List<BasketItem> items = [];
 
-  @override
-  void onInit() {
-
-    super.onInit();
-  }
-
   void addProduct(Product product) {
     BasketItem? item = items.firstWhereOrNull((element) => element.product.name == product.name);
     if(item == null) {

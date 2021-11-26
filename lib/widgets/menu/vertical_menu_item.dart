@@ -5,7 +5,7 @@ import 'package:site_molokovo/widgets/custom_text.dart';
 
 class VerticalMenuItem extends StatelessWidget {
 
-  VerticalMenuItem({required this.item, required this.onTap});
+  const VerticalMenuItem({required this.item, required this.onTap});
 
   final AppRoute item;
   final void Function() onTap;
