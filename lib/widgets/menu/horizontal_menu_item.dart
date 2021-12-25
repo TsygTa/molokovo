@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:site_molokovo/constants/app_route.dart';
+import 'package:site_molokovo/constants/app_menu.dart';
 import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/controllers/app_pages_controllers.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
@@ -9,7 +9,7 @@ class HorizontalMenuItem extends GetView<AppPagesController> {
 
   HorizontalMenuItem({required this.item, required this.onTap});
 
-  final AppRoute item;
+  final AppMenu item;
   final void Function() onTap;
 
   @override

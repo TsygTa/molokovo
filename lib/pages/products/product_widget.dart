@@ -25,17 +25,17 @@ class _ProductWidgetState extends State<ProductWidget> {
         showDetailed(context, widget.product, widget.onAddToBasket);
       },
       borderRadius: BorderRadius.circular(10),
-      hoverColor: Color(activeColor).withOpacity(0.3),
+      hoverColor: const Color(activeColor).withOpacity(0.3),
       child: Card(
         elevation: 6,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
-          side: BorderSide(
+          side: const BorderSide(
             color: Color(activeColor),
             width: 0.5,
           ),
         ),
-        color: Color(lightColor),
+        color: const Color(lightColor),
         child: Container(
           width: ResponsiveWidget.isSmallScreen(context) ? context.width : 250,
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
@@ -44,13 +44,13 @@ class _ProductWidgetState extends State<ProductWidget> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomImage(imagePath: widget.product.imagePath, width: 200, height: 200),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               CustomText(text: widget.product.name, fontWeight: FontWeight.bold,),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               CustomText(text: 'weight_volume'.tr + ': ' + widget.product.weight,),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               CustomText(text: 'price'.tr + ': ' + widget.product.priceToString,),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               CustomButton(title: 'add_to_basket'.tr, onPressed: () {
                 widget.onAddToBasket(widget.product);
               },)

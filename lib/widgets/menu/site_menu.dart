@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:site_molokovo/constants/app_route.dart';
+import 'package:site_molokovo/constants/app_menu.dart';
 import 'package:site_molokovo/controllers/app_pages_controllers.dart';
 import 'package:site_molokovo/widgets/menu/horizontal_menu_item.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
@@ -14,15 +14,15 @@ class SiteMenu extends StatelessWidget {
 
   final AppPagesController _pagesController = Get.find<AppPagesController>();
 
-  void _onTap(BuildContext context, AppRoute item) {
+  void _onTap(BuildContext context, AppMenu item) {
     switch(item) {
-      case AppRoute.userProfile:
+      case AppMenu.userProfile:
         break;
-      case AppRoute.home:
-      case AppRoute.products:
-      case AppRoute.delivery:
-      case AppRoute.aboutUs:
-      case AppRoute.contacts:
+      case AppMenu.home:
+      case AppMenu.products:
+      case AppMenu.delivery:
+      case AppMenu.aboutUs:
+      case AppMenu.contacts:
         if(ResponsiveWidget.isSmallScreen(context) && scaffoldKey != null) {
           if (scaffoldKey!.currentState!.hasEndDrawer) {
             Navigator.of(context).pop();
@@ -47,7 +47,7 @@ class SiteMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     if(isForDrawer) {
       return ListView(
-        children: AppRoute.values.where((e) => e != AppRoute.home && e != AppRoute.userProfile).map<Widget>((item) => VerticalMenuItem(item: item, onTap: (){
+        children: AppMenu.values.where((e) => e != AppMenu.home && e != AppMenu.userProfile).map<Widget>((item) => VerticalMenuItem(item: item, onTap: (){
           _onTap(context, item);
         })).toList(),
       );
@@ -59,10 +59,10 @@ class SiteMenu extends StatelessWidget {
             InkWell(
               child: Image.asset('assets/logo/logo_molokovo.png'),
               onTap: (){
-                _onTap(context, AppRoute.home);
+                _onTap(context, AppMenu.home);
               },)
           ]
-          + AppRoute.values.where((e) => e != AppRoute.home && e != AppRoute.userProfile).map((item) => HorizontalMenuItem(item: item, onTap: () {
+          + AppMenu.values.where((e) => e != AppMenu.home && e != AppMenu.userProfile).map((item) => HorizontalMenuItem(item: item, onTap: () {
             _onTap(context, item);
           })).toList()
           //+ [SignInButton(), BasketButton(scaffoldKey)],

@@ -9,9 +9,8 @@ import 'package:site_molokovo/widgets/basket/basket_form.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 import 'package:site_molokovo/widgets/menu/site_menu.dart';
 import 'package:site_molokovo/widgets/top_navigation_bar.dart';
-
-import 'constants/app_route.dart';
 import 'controllers/app_pages_controllers.dart';
+import 'models/app_route_path.dart';
 
 
 class SiteLayout extends GetView<AppPagesController> {
@@ -26,13 +25,13 @@ class SiteLayout extends GetView<AppPagesController> {
       appBar: topNavigationBar(context, scaffoldKey),
       body: GetBuilder<AppPagesController>(
           builder: (_) {
-            if(controller.currentPage == AppRoute.delivery) {
+            if(controller.currentPage == AppRoutePath.delivery()) {
               return DeliveryPage();
-            } else if(controller.currentPage == AppRoute.aboutUs) {
+            } else if(controller.currentPage == AppRoutePath.aboutUs()) {
               return AboutUsPage();
-            } else if(controller.currentPage == AppRoute.contacts) {
+            } else if(controller.currentPage == AppRoutePath.contacts()) {
               return ContactsPage();
-            } else if(controller.currentPage == AppRoute.userProfile) {
+            } else if(controller.currentPage == AppRoutePath.userProfile()) {
               return UserProfilePage();
             }
             return ProductsPage();

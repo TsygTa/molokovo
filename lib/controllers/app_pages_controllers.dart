@@ -1,12 +1,13 @@
 
 import 'package:get/get.dart';
-import 'package:site_molokovo/constants/app_route.dart';
+import 'package:site_molokovo/constants/app_menu.dart';
+import 'package:site_molokovo/models/app_route_path.dart';
 
 class AppPagesController extends GetxController {
 
-  AppRoute currentPage = AppRoute.home;
+  AppRoutePath currentPage = AppMenu.home;
 
-  void setPage(AppRoute item) {
+  void setPage(AppMenu item) {
     currentPage = item;
     update();
   }

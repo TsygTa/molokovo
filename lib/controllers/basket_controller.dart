@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:site_molokovo/constants/app_route.dart';
+import 'package:site_molokovo/constants/app_menu.dart';
 import 'package:site_molokovo/models/basket_item.dart';
 import 'package:site_molokovo/models/product.dart';
 import 'package:collection/collection.dart';
@@ -36,13 +36,13 @@ class BasketController extends GetxController {
   void gotoProducts(BuildContext context) {
     Navigator.pop(context);
     AppPagesController _pagesController = Get.find();
-    _pagesController.setPage(AppRoute.products);
+    _pagesController.setPage(AppMenu.products);
   }
 
   void makeOrder(BuildContext context) {
     Navigator.pop(context);
     AppPagesController _pagesController = Get.find();
-    _pagesController.setPage(AppRoute.products);
+    _pagesController.setPage(AppMenu.products);
   }
 
   bool get basketIsEmpty {

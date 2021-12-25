@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:site_molokovo/constants/app_route.dart';
+import 'package:site_molokovo/constants/app_menu.dart';
 import 'package:site_molokovo/controllers/app_pages_controllers.dart';
 import 'package:site_molokovo/models/auth_response.dart';
 import 'package:site_molokovo/models/user.dart';
@@ -73,7 +73,7 @@ class AuthController extends GetxController {
 
   void logout() {
     AppPagesController _pagesController = Get.find();
-    _pagesController.setPage(AppRoute.home);
+    _pagesController.setPage(AppMenu.home);
     authState = AuthState.init;
     user = null;
     update();
