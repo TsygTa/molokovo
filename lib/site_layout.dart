@@ -13,7 +13,7 @@ import 'controllers/menu_pages_controllers.dart';
 import 'models/app_route_path.dart';
 
 
-class SiteLayout extends GetView<AppPagesController> {
+class SiteLayout extends GetView<MenuPagesController> {
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class SiteLayout extends GetView<AppPagesController> {
     return Scaffold(
       key: scaffoldKey,
       appBar: topNavigationBar(context, scaffoldKey),
-      body: GetBuilder<AppPagesController>(
+      body: GetBuilder<MenuPagesController>(
           builder: (_) {
             if(controller.currentPage == AppRoutePath.delivery()) {
               return DeliveryPage();

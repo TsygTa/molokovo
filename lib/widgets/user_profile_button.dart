@@ -4,14 +4,13 @@ import 'package:site_molokovo/constants/app_menu.dart';
 import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/controllers/menu_pages_controllers.dart';
 import 'package:site_molokovo/controllers/auth_controller.dart';
-import 'package:site_molokovo/models/app_route_path.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
 class UserProfileButton extends StatelessWidget {
 
   void _onPressed(BuildContext context) {
-    AppPagesController pagesController = Get.find<AppPagesController>();
-    pagesController.setPage(AppRoutePath.userProfile());
+    MenuPagesController pagesController = Get.find<MenuPagesController>();
+    pagesController.setPage(AppMenu.userProfile);
   }
 
   @override

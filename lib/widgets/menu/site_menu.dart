@@ -12,7 +12,7 @@ class SiteMenu extends StatelessWidget {
   final bool isForDrawer;
   final GlobalKey<ScaffoldState>? scaffoldKey;
 
-  final AppPagesController _pagesController = Get.find<AppPagesController>();
+  final MenuPagesController _pagesController = Get.find<MenuPagesController>();
 
   void _onTap(BuildContext context, AppMenu item) {
     switch(item) {

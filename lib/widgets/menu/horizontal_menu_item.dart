@@ -5,7 +5,7 @@ import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/controllers/menu_pages_controllers.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
-class HorizontalMenuItem extends GetView<AppPagesController> {
+class HorizontalMenuItem extends GetView<MenuPagesController> {
 
   HorizontalMenuItem({required this.item, required this.onTap});
 
@@ -15,7 +15,7 @@ class HorizontalMenuItem extends GetView<AppPagesController> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      child: GetBuilder<AppPagesController>(
+      child: GetBuilder<MenuPagesController>(
           builder: (event) {
             return CustomText(text: item.displayName,
               color: event.currentPage == item ? Color(activeColor) : Color(darkColor));
