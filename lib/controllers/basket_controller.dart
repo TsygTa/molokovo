@@ -5,7 +5,7 @@ import 'package:site_molokovo/models/basket_item.dart';
 import 'package:site_molokovo/models/product.dart';
 import 'package:collection/collection.dart';
 
-import 'app_pages_controllers.dart';
+import 'menu_pages_controllers.dart';
 
 class BasketController extends GetxController {
 
@@ -35,13 +35,13 @@ class BasketController extends GetxController {
 
   void gotoProducts(BuildContext context) {
     Navigator.pop(context);
-    AppPagesController _pagesController = Get.find();
+    MenuPagesController _pagesController = Get.find();
     _pagesController.setPage(AppMenu.products);
   }
 
   void makeOrder(BuildContext context) {
     Navigator.pop(context);
-    AppPagesController _pagesController = Get.find();
+    MenuPagesController _pagesController = Get.find();
     _pagesController.setPage(AppMenu.products);
   }
 

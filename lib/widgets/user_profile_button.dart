@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/constants/app_menu.dart';
 import 'package:site_molokovo/constants/style.dart';
-import 'package:site_molokovo/controllers/app_pages_controllers.dart';
+import 'package:site_molokovo/controllers/menu_pages_controllers.dart';
 import 'package:site_molokovo/controllers/auth_controller.dart';
 import 'package:site_molokovo/models/app_route_path.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';

@@ -6,8 +6,8 @@ import 'package:site_molokovo/widgets/custom_button.dart';
 import 'package:site_molokovo/widgets/custom_image.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
-class ProductDetailedPage extends StatelessWidget {
-  const ProductDetailedPage(this.product, this.onAddToBasket, {Key? key}) : super(key: key);
+class ProductDetailsPage extends StatelessWidget {
+  const ProductDetailsPage(this.product, this.onAddToBasket, {Key? key}) : super(key: key);
   final Product product;
   final void Function(Product) onAddToBasket;
 

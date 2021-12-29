@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/models/product.dart';
-import 'package:site_molokovo/pages/products/product_detailed_widget.dart';
+import 'package:site_molokovo/pages/products/product_details_widget.dart';
 import 'package:site_molokovo/widgets/custom_button.dart';
 import 'package:site_molokovo/widgets/custom_image.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';

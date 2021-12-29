@@ -9,7 +9,7 @@ import 'package:site_molokovo/widgets/basket/basket_form.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 import 'package:site_molokovo/widgets/menu/site_menu.dart';
 import 'package:site_molokovo/widgets/top_navigation_bar.dart';
-import 'controllers/app_pages_controllers.dart';
+import 'controllers/menu_pages_controllers.dart';
 import 'models/app_route_path.dart';
 
 

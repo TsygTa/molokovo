@@ -6,8 +6,8 @@ import 'package:site_molokovo/widgets/custom_button.dart';
 import 'package:site_molokovo/widgets/custom_image.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
-class ProductDetailedWidget extends StatelessWidget {
-  const ProductDetailedWidget(this.product, this.onAddToBasket);
+class ProductDetailsWidget extends StatelessWidget {
+  const ProductDetailsWidget(this.product, this.onAddToBasket);
   final Product product;
   final void Function(Product) onAddToBasket;
 
@@ -74,7 +74,7 @@ Future<void> showDetailed(BuildContext context, Product product, Function(Produc
         return SimpleDialog(
           contentPadding: const EdgeInsets.all(16),
           children: <Widget>[
-            ProductDetailedWidget(product, onAddToBasket)
+            ProductDetailsWidget(product, onAddToBasket)
           ],
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),),

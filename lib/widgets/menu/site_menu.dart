@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/constants/app_menu.dart';
-import 'package:site_molokovo/controllers/app_pages_controllers.dart';
+import 'package:site_molokovo/controllers/menu_pages_controllers.dart';
 import 'package:site_molokovo/widgets/menu/horizontal_menu_item.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 import 'package:site_molokovo/widgets/menu/vertical_menu_item.dart';
