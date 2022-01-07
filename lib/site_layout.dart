@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:site_molokovo/constants/app_menu.dart';
 import 'package:site_molokovo/pages/about_us_page.dart';
 import 'package:site_molokovo/pages/contacts_page.dart';
 import 'package:site_molokovo/pages/delivery_page.dart';
@@ -20,34 +21,38 @@ class SiteLayout extends GetView<MenuPagesController> {
 
     GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
-    return Scaffold(
-      key: scaffoldKey,
-      appBar: topNavigationBar(context, scaffoldKey),
-      body: GetBuilder<MenuPagesController>(
-          builder: (_) {
-            if(controller.currentPage == AppRoutePath.delivery()) {
-              return DeliveryPage();
-            } else if(controller.currentPage == AppRoutePath.aboutUs()) {
-              return AboutUsPage();
-            } else if(controller.currentPage == AppRoutePath.contacts()) {
-              return ContactsPage();
-            } else if(controller.currentPage == AppRoutePath.userProfile()) {
-              return UserProfilePage();
-            }
-            return ProductsPage();
-          }
-      ),
-      drawer: ResponsiveWidget.isSmallScreen(context)
-          ? Drawer(
-              child: SiteMenu(isForDrawer: true, scaffoldKey: scaffoldKey,),
-            )
-          : null,
-      endDrawer: SizedBox(
-        width: context.width / (ResponsiveWidget.isSmallScreen(context) ? 1 : 3),
-        child: Drawer(
-          child: BasketForm(),
-        ),
-      ),
+    return GetRouterOutlet.builder(
+      builder: (context, delegate, current) {
+        return Scaffold(
+          key: scaffoldKey,
+          appBar: topNavigationBar(context, scaffoldKey),
+          body: GetBuilder(
+              builder: (_) {
+                if(controller.currentPage == AppMenu.delivery) {
+                  return DeliveryPage();
+                } else if(controller.currentPage == AppMenu.aboutUs) {
+                  return AboutUsPage();
+                } else if(controller.currentPage == AppMenu.contacts) {
+                  return ContactsPage();
+                } else if(controller.currentPage == AppMenu.userProfile) {
+                  return UserProfilePage();
+                }
+                return ProductsPage();
+              }
+          ),
+          drawer: ResponsiveWidget.isSmallScreen(context)
+              ? Drawer(
+                  child: SiteMenu(isForDrawer: true, scaffoldKey: scaffoldKey,),
+                )
+              : null,
+          endDrawer: SizedBox(
+            width: context.width / (ResponsiveWidget.isSmallScreen(context) ? 1 : 3),
+            child: Drawer(
+              child: BasketForm(),
+            ),
+          ),
+        );
+      }
     );
   }
 }
