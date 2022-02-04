@@ -8,7 +8,7 @@ import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
 class PhoneForm extends StatefulWidget {
-  PhoneForm(this.onSendCode, {this.isSendCodeFailed = false});
+  const PhoneForm(this.onSendCode, {this.isSendCodeFailed = false});
   final void Function(String phone) onSendCode;
   final bool isSendCodeFailed;
   @override
@@ -43,7 +43,7 @@ class _PhoneFormState extends State<PhoneForm> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomText(text: 'login_dialog_title'.tr, fontSize: 30,),
-              IconButton(onPressed: () => Navigator.pop(context),
+              IconButton(onPressed: () => Get.back(),
                   icon: Icon(Icons.close,size: 30, color: Color(activeColor),),
                 splashRadius: 15,)
             ],

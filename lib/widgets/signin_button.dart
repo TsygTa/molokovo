@@ -8,9 +8,9 @@ import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class SignInButton extends StatelessWidget {
 
-  void _onPressed(BuildContext context) {
+  void _onPressed() {
     Get.find<AuthController>().authInit();
-    showLoginDialog(context);
+    showLoginDialog();
   }
 
   @override
@@ -23,11 +23,11 @@ class SignInButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(18.0),
             ),
-            primary: Color(greyColor),
-            onPrimary: Color(darkColor),
+            primary: const Color(greyColor),
+            onPrimary: const Color(darkColor),
           ),
           onPressed: () {
-            _onPressed(context);
+            _onPressed();
           },
           child: CustomText(text: 'sign_in'.tr),
         ),
@@ -36,9 +36,9 @@ class SignInButton extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.only(right: 20),
         child: IconButton(
-          icon: Icon(Icons.input, color: Color(activeColor), size: 30,),
+          icon: const Icon(Icons.input, color: Color(activeColor), size: 30,),
           onPressed: () {
-            _onPressed(context);
+            _onPressed();
           },
         ),
       );

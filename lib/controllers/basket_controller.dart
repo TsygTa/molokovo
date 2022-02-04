@@ -1,15 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:site_molokovo/constants/app_route.dart';
+import 'package:site_molokovo/constants/app_menu.dart';
 import 'package:site_molokovo/models/basket_item.dart';
 import 'package:site_molokovo/models/product.dart';
 import 'package:collection/collection.dart';
+import 'package:site_molokovo/routes/app_pages.dart';
 
-import 'app_pages_controllers.dart';
+enum PaymentType{byCartOnSite, byCashToCourier}
 
 class BasketController extends GetxController {
 
   List<BasketItem> items = [];
+  PaymentType paymentType = PaymentType.byCartOnSite;
 
   void addProduct(Product product) {
     BasketItem? item = items.firstWhereOrNull((element) => element.product.name == product.name);
@@ -33,16 +34,27 @@ class BasketController extends GetxController {
     }
   }
 
-  void gotoProducts(BuildContext context) {
-    Navigator.pop(context);
-    AppPagesController _pagesController = Get.find();
-    _pagesController.setPage(AppRoute.products);
+  void gotoProducts() {
+    Get.back();
+    Get.rootDelegate.toNamed(AppMenu.products.route);
   }
 
-  void makeOrder(BuildContext context) {
-    Navigator.pop(context);
-    AppPagesController _pagesController = Get.find();
-    _pagesController.setPage(AppRoute.products);
+  void makeOrder() {
+    Get.back();
+    Get.rootDelegate.toNamed(AppPages.order);
+  }
+
+  void makePayment() {
+    Get.snackbar(
+        'payment'.tr,
+        'payment_success'.tr
+    );
+    Get.rootDelegate.toNamed((AppMenu.products.route));
+  }
+
+  void setPaymentType(PaymentType type) {
+    paymentType = type;
+    update();
   }
 
   bool get basketIsEmpty {

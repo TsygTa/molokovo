@@ -6,7 +6,7 @@ import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class BasketButton extends StatelessWidget {
-  BasketButton(this.scaffoldKey);
+  const BasketButton(this.scaffoldKey);
 
   final GlobalKey<ScaffoldState>? scaffoldKey;
 
@@ -24,16 +24,16 @@ class BasketButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(18.0),
             ),
-            primary: Color(activeColor),
-            onPrimary: Color(lightColor),
+            primary: const Color(activeColor),
+            onPrimary: const Color(lightColor),
           ),
           onPressed: _onPressed,
           child: GetBuilder<BasketController>(
               builder: (controller) {
                 return Row(
                   children: [
-                    Icon(Icons.shopping_cart_outlined),
-                    SizedBox(width: 8,),
+                    const Icon(Icons.shopping_cart_outlined),
+                    const SizedBox(width: 8,),
                     CustomText(text: 'basket'.tr + ' | ' +
                         controller.productsNumber),
                   ],
@@ -45,10 +45,19 @@ class BasketButton extends StatelessWidget {
     } else {
       return Padding(
         padding: const EdgeInsets.only(right: 20),
-        child: IconButton(
-          icon: Icon(Icons.shopping_cart_outlined, color: Color(activeColor), size: 30,),
-          onPressed: _onPressed,
-        ),
+        child: GetBuilder<BasketController>(
+            builder: (controller) {
+            return ElevatedButton.icon(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Color(lightColor)),
+                elevation: MaterialStateProperty.all(0)
+              ),
+              onPressed: _onPressed,
+              icon: const Icon(Icons.shopping_cart_outlined, color: Color(activeColor), size: 30,),
+              label: CustomText(text: controller.productsNumber)
+            );
+          }
+        )
       );
     }
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/constants/style.dart';
-import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class UserProfileItem extends StatefulWidget {
@@ -37,79 +36,62 @@ class _UserProfileItemState extends State<UserProfileItem> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: ResponsiveWidget.isSmallScreen(context) ? context.width : context.width / 3,
+
+    double width = ResponsiveWidget.isSmallScreen(context) || ResponsiveWidget.isMediumScreen(context) ? context.width : context.width / 3;
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+      width: width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText( text: widget.label,),
-                const SizedBox(height: 8,),
-                Stack(
-                  children: [
-                    TextFormField(
-                      enabled: _isEdit,
-                      controller: _textController,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      validator: (value) {
-                        bool isValid = value != null && value.isNotEmpty;
-                        if(isValid && widget.regExp != null) {
-                          isValid = widget.regExp!.hasMatch(value);
-                        }
-                        if (isValid != _isSaveEnabled) {
-                          WidgetsBinding.instance!.addPostFrameCallback((_) {
-                            setState(() {
-                              _isSaveEnabled = isValid;
-                            });
-                          });
-                        }
-                      },
-                      autocorrect: false,
-                      textAlignVertical: TextAlignVertical.bottom,
-                      maxLines: 1,
-                      style: TextStyle(fontSize: 18, color: Color(darkColor)),
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(color: Color(activeColor),)
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                    widget.isEditable
-                    ? Container(
-                      alignment: Alignment.centerRight,
-                      padding: const EdgeInsets.fromLTRB(0, 12, 0, 0),
-                      child: TextButton(
-                        onPressed: _isEdit ? (_isSaveEnabled ? _onSave : null) : _onChange,
-                          child: CustomText(text: _isEdit ? 'save'.tr : 'change'.tr, fontSize: 16, color: Color(activeColor),)),
-                    )
-                    : SizedBox.shrink(),
-                  ],
+            child: TextFormField(
+              enabled: _isEdit,
+              controller: _textController,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (value) {
+                bool isValid = value != null && value.isNotEmpty;
+                if(isValid && widget.regExp != null) {
+                  isValid = widget.regExp!.hasMatch(value);
+                }
+                if (isValid != _isSaveEnabled) {
+                  WidgetsBinding.instance!.addPostFrameCallback((_) {
+                    setState(() {
+                      _isSaveEnabled = isValid;
+                    });
+                  });
+                }
+              },
+              autocorrect: false,
+              textAlignVertical: TextAlignVertical.bottom,
+              maxLines: 1,
+              style: TextStyle(fontSize: 18, color: Color(darkColor)),
+              decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: Color(activeColor),)
                 ),
-              ],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
             ),
           ),
-          SizedBox(
-            width: 100,
-            child: _isEdit
-                ? Container(
-                    alignment: Alignment.centerLeft,
-                    padding: const EdgeInsets.fromLTRB(0, 26, 0, 0),
-                    child: TextButton(
-                      onPressed: _onCancel,
-                      child: CustomText(text: 'cancel'.tr, fontSize: 16, color: Color(activeColor),)
-                    ),
+          widget.isEditable
+              ? IconButton(
+                  onPressed: _isEdit ? (_isSaveEnabled ? _onSave : null) : _onChange,
+                  icon: Icon(_isEdit ? Icons.save_outlined : Icons.edit, color: Color(activeColor), size: 30,),
+                  splashRadius: 30,
                 )
-                : SizedBox.shrink()
-          ),
+              : const SizedBox(width: 40,),
+          _isEdit
+            ? IconButton(
+                onPressed: _onCancel,
+                icon: Icon(Icons.cancel_outlined, color: Color(activeColor), size: 30,),
+                splashRadius: 30,
+              )
+            : const SizedBox(width: 40,),
         ],
       ),
     );

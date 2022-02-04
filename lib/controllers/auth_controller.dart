@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
-import 'package:site_molokovo/constants/app_route.dart';
-import 'package:site_molokovo/controllers/app_pages_controllers.dart';
+import 'package:site_molokovo/constants/app_menu.dart';
 import 'package:site_molokovo/models/auth_response.dart';
 import 'package:site_molokovo/models/user.dart';
 import 'package:site_molokovo/repositories/data_repository.dart';
+import 'package:site_molokovo/services/auth_service.dart';
 
-enum AuthState{init, codeSent, codeSentFailed, success, failed}
+enum AuthState{notAuth, init, codeSent, codeSentFailed, success, failed}
 
 class AuthController extends GetxController {
 
@@ -13,12 +13,13 @@ class AuthController extends GetxController {
 
   User? user;
 
-  AuthState authState = AuthState.init;
+  AuthState authState = AuthState.notAuth;
 
-  @override
-  void onReady() {
-    authState = AuthState.init;
-    super.onReady();
+
+  void notAuth() {
+    authState = AuthState.notAuth;
+    user = null;
+    update();
   }
 
   void authInit() {
@@ -43,6 +44,7 @@ class AuthController extends GetxController {
     AuthResponse response = await _dataRepository.auth(phone, code);
     if(response.status && response.user != null) {
       user = response.user;
+      AuthService.to.login();
       authState = AuthState.success;
     } else {
       authState = AuthState.failed;
@@ -72,9 +74,9 @@ class AuthController extends GetxController {
   }
 
   void logout() {
-    AppPagesController _pagesController = Get.find();
-    _pagesController.setPage(AppRoute.home);
-    authState = AuthState.init;
+    Get.rootDelegate.toNamed(AppMenu.home.route);
+    AuthService.to.logout();
+    authState = AuthState.notAuth;
     user = null;
     update();
   }

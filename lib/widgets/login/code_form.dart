@@ -9,7 +9,7 @@ import 'package:site_molokovo/widgets/login/i_agree_item.dart';
 import 'package:site_molokovo/widgets/login/pin_widget.dart';
 
 class CodeForm extends StatefulWidget {
-  CodeForm(this.phone,
+  const CodeForm(this.phone,
       {required this.onCheckCode, required this.onChangePhone,
         this.isWrongCode = false,
         required this.onRepeatSendCode});
@@ -70,7 +70,7 @@ class _CodeFormState extends State<CodeForm> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomText(text: 'login_dialog_title'.tr, fontSize:   30,),
-              IconButton(onPressed: () => Navigator.pop(context),
+              IconButton(onPressed: () => Get.back(),
                   icon: Icon(Icons.close,size: 30, color: Color(activeColor),),
                 splashRadius: 15,)
             ],

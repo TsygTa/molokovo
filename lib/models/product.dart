@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 class Product {
   Product({
+    required this.id,
     required this.name,
     required this.description,
     required this.shelfLife,
@@ -11,6 +12,7 @@ class Product {
     required this.imagePath
   });
 
+  final String id;
   final String name;
   final String description;
   final String shelfLife;

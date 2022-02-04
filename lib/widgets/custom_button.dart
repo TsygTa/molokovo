@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
 class CustomButton extends StatelessWidget {
-  CustomButton({this.title = '', this.onPressed,
-    this.backgroundColor = const Color(activeColor), this.titleColor = const Color(lightColor)});
+  const CustomButton({this.title = '', this.onPressed,
+  this.backgroundColor = const Color(activeColor), this.titleColor = const Color(lightColor)});
   final String title;
   final void Function()? onPressed;
   final Color titleColor;
