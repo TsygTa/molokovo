@@ -43,7 +43,7 @@ class _PhoneFormState extends State<PhoneForm> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomText(text: 'login_dialog_title'.tr, fontSize: 30,),
-              IconButton(onPressed: () => Navigator.pop(context),
+              IconButton(onPressed: () => Get.back(),
                   icon: Icon(Icons.close,size: 30, color: Color(activeColor),),
                 splashRadius: 15,)
             ],

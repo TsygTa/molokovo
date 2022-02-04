@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:site_molokovo/pages/about_us_page.dart';
-import 'package:site_molokovo/pages/contacts_page.dart';
-import 'package:site_molokovo/pages/delivery_page.dart';
-import 'package:site_molokovo/pages/products/products_page.dart';
-import 'package:site_molokovo/pages/user_profile/user_profile_page.dart';
-import 'package:site_molokovo/site_layout.dart';
+import 'package:site_molokovo/routes/app_pages.dart';
 
 enum AppMenu {home, products, delivery, aboutUs, contacts, userProfile}
 
@@ -42,5 +37,26 @@ extension AppRouteExt on AppMenu {
       case AppMenu.userProfile:
         return Icons.face;
     }
+  }
+
+  String get route {
+    switch(this) {
+      case AppMenu.home:
+        return Routes.home;
+      case AppMenu.products:
+        return Routes.products;
+      case AppMenu.delivery:
+        return Routes.delivery;
+      case AppMenu.aboutUs:
+        return Routes.aboutUs;
+      case AppMenu.contacts:
+        return Routes.contacts;
+      case AppMenu.userProfile:
+        return Routes.profile;
+    }
+  }
+
+  String get orderPageRoute {
+    return Routes.order;
   }
 }

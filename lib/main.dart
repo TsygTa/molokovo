@@ -4,8 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:site_molokovo/constants/style.dart';
+import 'package:site_molokovo/routes/app_pages.dart';
+import 'package:site_molokovo/services/auth_service.dart';
 import 'package:site_molokovo/utils/app_localizations.dart';
-import 'package:site_molokovo/utils/routing/app_pages.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -28,8 +29,10 @@ class MyApp extends StatelessWidget {
       onGenerateTitle: (BuildContext context) {
         return 'title'.tr;
       },
+      getPages: AppPages.routes,
+      initialBinding: BindingsBuilder(() {Get.put(AuthService());},),
       debugShowCheckedModeBanner: false,
-      defaultTransition: Transition.native,
+      defaultTransition: Transition.fade,
       translations: AppLocalizations(),
       locale: Get.deviceLocale,
       theme: ThemeData(
@@ -43,12 +46,6 @@ class MyApp extends StatelessWidget {
             bodyColor: const Color(activeColor),
         ),
       ),
-      initialBinding: BindingsBuilder(
-            () {
-          //Get.put(AuthService());
-        },
-      ),
-      getPages: AppPages.routes,
     );
   }
 }

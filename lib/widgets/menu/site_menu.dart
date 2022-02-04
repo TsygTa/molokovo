@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/constants/app_menu.dart';
-import 'package:site_molokovo/controllers/menu_pages_controllers.dart';
 import 'package:site_molokovo/widgets/menu/horizontal_menu_item.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 import 'package:site_molokovo/widgets/menu/vertical_menu_item.dart';
@@ -11,8 +10,6 @@ class SiteMenu extends StatelessWidget {
   SiteMenu({this.isForDrawer = false, this.scaffoldKey});
   final bool isForDrawer;
   final GlobalKey<ScaffoldState>? scaffoldKey;
-
-  final MenuPagesController _pagesController = Get.find<MenuPagesController>();
 
   void _onTap(BuildContext context, AppMenu item) {
     switch(item) {
@@ -25,10 +22,10 @@ class SiteMenu extends StatelessWidget {
       case AppMenu.contacts:
         if(ResponsiveWidget.isSmallScreen(context) && scaffoldKey != null) {
           if (scaffoldKey!.currentState!.hasEndDrawer) {
-            Navigator.of(context).pop();
+            Get.back();
           }
         }
-        _pagesController.setPage(item);
+        Get.rootDelegate.toNamed(item.route);
         break;
     }
   }

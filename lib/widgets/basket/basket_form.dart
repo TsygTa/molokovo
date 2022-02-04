@@ -19,7 +19,7 @@ class BasketForm extends GetView<BasketController> {
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: IconButton(onPressed: () => Navigator.pop(context),
+                    child: IconButton(onPressed: () => Get.back(),
                         icon: Icon(
                           Icons.close, size: 30, color: Color(activeColor),),
                       splashRadius: 15,),
@@ -35,7 +35,7 @@ class BasketForm extends GetView<BasketController> {
                         CustomText(text: 'empty_basket'.tr, fontSize: 24,),
                         CustomButton(
                           title: 'back_to_menu'.tr,
-                          onPressed: () => controller.gotoProducts(context),
+                          onPressed: () => controller.gotoProducts(),
                         ),
                       ],
                     ),
@@ -44,23 +44,22 @@ class BasketForm extends GetView<BasketController> {
               ),
             );
           } else {
-            return Padding(
-              padding: const EdgeInsets.fromLTRB(20, 10, 20, 40),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: IconButton(onPressed: () => Navigator.pop(context),
-                        icon: Icon(
-                          Icons.close, size: 30, color: Color(activeColor),),
-                          splashRadius: 15,),
-                  ),
-                  CustomText(text: 'summary_1'.tr + controller.productsNumber + 'summary_2'.tr + controller.total + ' ' + 'rub'.tr,
-                    fontSize: 20, ),
-                  Container(
-                    padding: EdgeInsets.only(top: 10),
-                    height: context.height * 0.6,
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(onPressed: () => Get.back(),
+                      icon: Icon(
+                        Icons.close, size: 30, color: Color(activeColor),),
+                        splashRadius: 15,),
+                ),
+                const SizedBox(height: 20,),
+                CustomText(text: 'summary_1'.tr + controller.productsNumber + 'summary_2'.tr + controller.total + ' ' + 'rub'.tr,
+                  fontSize: 20, ),
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(30, 20, 30, 10),
                     child: ListView.separated(
                       itemCount: controller.items.length,
                       separatorBuilder: (context, index) {
@@ -81,19 +80,25 @@ class BasketForm extends GetView<BasketController> {
                       },
                     ),
                   ),
-                  Row(
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(30, 10, 30, 10),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomText(text: 'order_total'.tr, fontSize: 20, ),
                       CustomText(text: controller.total + ' ' + 'rub'.tr, fontSize: 20, ),
                     ],
                   ),
-                  CustomButton(
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(30, 10, 30, 50),
+                  child: CustomButton(
                     title: 'make_order'.tr,
-                    onPressed: () => controller.makeOrder(context),
+                    onPressed: () => controller.makeOrder(),
                   ),
-                ],
-              ),
+                ),
+              ],
             );
           }
         });
