@@ -9,7 +9,7 @@ import 'package:site_molokovo/widgets/login/i_agree_item.dart';
 import 'package:site_molokovo/widgets/login/pin_widget.dart';
 
 class CodeForm extends StatefulWidget {
-  CodeForm(this.phone,
+  const CodeForm(this.phone,
       {required this.onCheckCode, required this.onChangePhone,
         this.isWrongCode = false,
         required this.onRepeatSendCode});

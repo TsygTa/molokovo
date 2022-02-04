@@ -8,7 +8,7 @@ import 'package:site_molokovo/constants/style.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
 class PhoneForm extends StatefulWidget {
-  PhoneForm(this.onSendCode, {this.isSendCodeFailed = false});
+  const PhoneForm(this.onSendCode, {this.isSendCodeFailed = false});
   final void Function(String phone) onSendCode;
   final bool isSendCodeFailed;
   @override

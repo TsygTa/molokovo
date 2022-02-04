@@ -4,7 +4,7 @@ import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class ConstrainedWidget extends StatelessWidget {
 
-  ConstrainedWidget(this.item);
+  const ConstrainedWidget(this.item);
   final Widget item;
 
   @override

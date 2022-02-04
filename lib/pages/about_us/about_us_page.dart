@@ -5,7 +5,6 @@ import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/footer.dart';
 import 'package:site_molokovo/widgets/page_layout.dart';
 import 'package:site_molokovo/widgets/page_title_widget.dart';
-import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class AboutUsPage extends StatelessWidget {
   @override

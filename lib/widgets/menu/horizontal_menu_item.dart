@@ -6,7 +6,7 @@ import 'package:site_molokovo/widgets/custom_text.dart';
 
 class HorizontalMenuItem extends StatelessWidget {
 
-  HorizontalMenuItem({required this.item, required this.onTap});
+  const HorizontalMenuItem({required this.item, required this.onTap});
 
   final AppMenu item;
   final void Function() onTap;

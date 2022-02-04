@@ -6,7 +6,7 @@ import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class BasketButton extends StatelessWidget {
-  BasketButton(this.scaffoldKey);
+  const BasketButton(this.scaffoldKey);
 
   final GlobalKey<ScaffoldState>? scaffoldKey;
 

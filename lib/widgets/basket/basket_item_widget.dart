@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:site_molokovo/controllers/basket_controller.dart';
 import 'package:site_molokovo/models/basket_item.dart';
 import 'package:site_molokovo/widgets/custom_image.dart';
 import 'package:site_molokovo/widgets/custom_text.dart';
 
 
 class BasketItemWidget extends StatelessWidget {
-  BasketItemWidget({required this.item, required this.onAdd, required this.onRemove});
+  const BasketItemWidget({required this.item, required this.onAdd, required this.onRemove});
   final BasketItem item;
   final void Function() onAdd;
   final void Function() onRemove;

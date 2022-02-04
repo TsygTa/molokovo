@@ -4,7 +4,7 @@ import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class CustomText extends StatelessWidget {
 
-  CustomText({
+  const CustomText({
     this.text,
     this.fontSize,
     this.color,

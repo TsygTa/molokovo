@@ -7,7 +7,7 @@ import 'package:site_molokovo/widgets/menu/vertical_menu_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SiteMenu extends StatelessWidget {
-  SiteMenu({this.isForDrawer = false, this.scaffoldKey});
+  const SiteMenu({this.isForDrawer = false, this.scaffoldKey});
   final bool isForDrawer;
   final GlobalKey<ScaffoldState>? scaffoldKey;
 

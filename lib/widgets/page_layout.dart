@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:site_molokovo/widgets/constrained_widget.dart';
 
 class PageLayout extends StatelessWidget {
-  PageLayout({required this.body, required this.footer});
+  const PageLayout({required this.body, required this.footer});
   final Widget body;
   final Widget footer;
 

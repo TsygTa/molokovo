@@ -1,10 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/controllers/products_controller.dart';
 import 'package:site_molokovo/pages/products/product_widget.dart';
-import 'package:site_molokovo/widgets/constrained_widget.dart';
 import 'package:site_molokovo/widgets/footer.dart';
 import 'package:site_molokovo/widgets/page_layout.dart';
 import 'package:site_molokovo/widgets/page_title_widget.dart';

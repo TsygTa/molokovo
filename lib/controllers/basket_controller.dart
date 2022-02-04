@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:site_molokovo/constants/app_menu.dart';
-import 'package:site_molokovo/controllers/auth_controller.dart';
 import 'package:site_molokovo/models/basket_item.dart';
 import 'package:site_molokovo/models/product.dart';
 import 'package:collection/collection.dart';

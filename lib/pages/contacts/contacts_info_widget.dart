@@ -40,9 +40,9 @@ class ContactsInfoWidget extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     CustomText(text: 'E-mail',  color: Color(darkColor), fontSize: 18, fontWeight: FontWeight.bold,),
-                    const SizedBox(height: 10,),
+                    SizedBox(height: 10,),
                     CustomText(text: companyEmail, color: Color(darkColor), fontSize: 16,),
                   ],
                 )
