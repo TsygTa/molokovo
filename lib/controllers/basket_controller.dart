@@ -4,6 +4,7 @@ import 'package:site_molokovo/models/basket_item.dart';
 import 'package:site_molokovo/models/product.dart';
 import 'package:collection/collection.dart';
 import 'package:site_molokovo/routes/app_pages.dart';
+import 'package:site_molokovo/utils/extensions.dart';
 
 enum PaymentType{byCartOnSite, byCashToCourier}
 
@@ -45,10 +46,7 @@ class BasketController extends GetxController {
   }
 
   void makePayment() {
-    Get.snackbar(
-        'payment'.tr,
-        'payment_success'.tr
-    );
+    Get.appDialog('payment'.tr, 'payment_success'.tr);
     Get.rootDelegate.toNamed((AppMenu.products.route));
   }
 

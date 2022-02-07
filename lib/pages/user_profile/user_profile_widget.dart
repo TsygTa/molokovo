@@ -18,7 +18,7 @@ class UserProfileWidget extends GetView<AuthController> {
             children: [
               UserProfileItem(
                 isEditable: true,
-                label: 'user_name'.tr,
+                label: 'user_name'.tr + '*',
                 initialValue: controller.user!.name,
                 onSubmit: (value) {
                   controller.changeUserName(value);
@@ -31,7 +31,7 @@ class UserProfileWidget extends GetView<AuthController> {
               ),
               UserProfileItem(
                 isEditable: true,
-                label: 'email'.tr,
+                label: 'email'.tr + '*',
                 initialValue: controller.user!.email,
                 regExp: emailRegExp,
                 onSubmit: (value) {
@@ -40,8 +40,9 @@ class UserProfileWidget extends GetView<AuthController> {
               ),
               UserProfileItem(
                 isEditable: true,
+                maxLines: 3,
                 initialValue: controller.user!.address,
-                label: 'delivery_address'.tr,
+                label: 'delivery_address'.tr + '*',
                 onSubmit: (value) {
                   controller.changeUserAddress(value);
                 },

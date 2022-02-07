@@ -64,7 +64,7 @@ class AppLocalizations extends Translations {
       'order_items': 'Состав заказа',
       'by_cart_on_site': 'Картой на сайте',
       'by_cash_to_courier': 'Наличными курьеру',
-      'payment_success': 'Заказ оплачен',
+      'payment_success': 'Заказ оплачен.',
     },
   };
 }

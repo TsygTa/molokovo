@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:site_molokovo/constants/style.dart';
+import 'package:site_molokovo/widgets/custom_text.dart';
 import 'package:site_molokovo/widgets/responsive_widget.dart';
 
 class UserProfileItem extends StatefulWidget {
-  const UserProfileItem({this.label, this.isEditable = false, this.onSubmit, this.regExp, this.initialValue});
+  const UserProfileItem({this.label, this.isEditable = false, this.onSubmit, this.regExp, this.initialValue, this.maxLines = 1});
 
   final String? label;
   final String? initialValue;
   final bool isEditable;
   final void Function(String)? onSubmit;
   final RegExp? regExp;
+  final int maxLines;
 
   @override
   State<UserProfileItem> createState() => _UserProfileItemState();
@@ -22,9 +24,12 @@ class _UserProfileItemState extends State<UserProfileItem> {
   bool _isEdit = false;
   bool _isSaveEnabled = false;
 
+  late String _oldValue;
+
   @override
   void initState() {
     _textController.text = widget.initialValue ?? '';
+    _oldValue = _textController.text;
     super.initState();
   }
 
@@ -65,9 +70,10 @@ class _UserProfileItemState extends State<UserProfileItem> {
               },
               autocorrect: false,
               textAlignVertical: TextAlignVertical.bottom,
-              maxLines: 1,
-              style: TextStyle(fontSize: 18, color: Color(darkColor)),
+              maxLines: widget.maxLines,
+              style: const TextStyle(fontSize: 14, color: Color(darkColor)),
               decoration: InputDecoration(
+                label: CustomText(text: widget.label, fontSize: 14,),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: Color(activeColor),)
@@ -88,7 +94,7 @@ class _UserProfileItemState extends State<UserProfileItem> {
           _isEdit
             ? IconButton(
                 onPressed: _onCancel,
-                icon: Icon(Icons.cancel_outlined, color: Color(activeColor), size: 30,),
+                icon: const Icon(Icons.cancel_outlined, color: Color(activeColor), size: 30,),
                 splashRadius: 30,
               )
             : const SizedBox(width: 40,),
@@ -109,12 +115,13 @@ class _UserProfileItemState extends State<UserProfileItem> {
       _isSaveEnabled = false;
     });
     if(widget.onSubmit != null) {
+      _oldValue = _textController.text;
       widget.onSubmit!(_textController.text);
     }
   }
 
   void _onCancel() {
-    _textController.text = '';
+    _textController.text = _oldValue;
     setState(() {
       _isEdit = false;
     });
