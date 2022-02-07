@@ -59,6 +59,7 @@ class _PhoneFormState extends State<PhoneForm> {
               _phoneFormatter,
             ],
             autofocus: true,
+            keyboardType: TextInputType.phone,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: (value) {
               bool isValid = value != null && _phoneRegExp.hasMatch(value);

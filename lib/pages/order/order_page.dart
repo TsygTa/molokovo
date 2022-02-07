@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:site_molokovo/controllers/auth_controller.dart';
 import 'package:site_molokovo/controllers/basket_controller.dart';
 import 'package:site_molokovo/pages/order/order_info_widget.dart';
 import 'package:site_molokovo/pages/order/order_items_widget.dart';
@@ -32,11 +33,24 @@ class OrderPage extends StatelessWidget {
                 builder: (controller) {
                   return SizedBox(
                     width: ResponsiveWidget.isSmallScreen(context) ? context.width : context.width / 3,
-                    child: CustomButton(
-                      title: 'make_order'.tr + 'summary_2'.tr + controller.total.toString() + ' ' + 'rub'.tr,
-                      onPressed: () {
-                        //controller.makePayment();
-                      },
+                    child: GetBuilder<AuthController>(
+                      builder: (authController) {
+                        return CustomButton(
+                          title: 'make_order'.tr + 'summary_2'.tr + controller.total.toString() + ' ' + 'rub'.tr,
+                          onPressed:
+                          authController.user != null
+                              && authController.user!.name != null
+                              && authController.user!.name!.isNotEmpty
+                              && authController.user!.address != null
+                              && authController.user!.address!.isNotEmpty
+                              && authController.user!.email != null
+                              && authController.user!.email!.isNotEmpty
+                              ? () {
+                                  controller.makePayment();
+                                }
+                              : null,
+                        );
+                      }
                     ),
                   );
                 }

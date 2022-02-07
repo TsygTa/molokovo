@@ -35,7 +35,7 @@ class ContactsInfoWidget extends StatelessWidget {
             ),
 
             Container(
-                margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                 width: width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,

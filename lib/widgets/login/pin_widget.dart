@@ -93,6 +93,7 @@ class _PinWidgetState extends State<PinWidget> {
       width: 50,
       height: 50,
       child: TextField(
+        keyboardType: TextInputType.number,
         autofocus: index == 0 ? true : false,
         controller: _pinControllers[index],
         textAlign: TextAlign.center,
